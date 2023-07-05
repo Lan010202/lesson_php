@@ -1,10 +1,10 @@
 <?php
 
-function redirect($url) {
-    header("Location: $url");
-    exit;
+require_once 'pdo.php';
+require_once 'helper.php';
+
+if ($_POST['id'] > 0 && is_numeric($_POST['id'])) {
+    delete(['id' => $_POST['id']]);
 }
 
-function redirectHome() {
-    redirect('index.php');
-}
+redirectHome();
