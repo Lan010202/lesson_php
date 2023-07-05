@@ -33,7 +33,8 @@ function create($data) {
 function delete($data) {
     $sql = "DELETE FROM categories where id = :id";
     $stmt = prepareSQL($sql);
-    $stmt->execute($data);
+    $stmt->bindParam(':id', $data['id']); // Tham chiếu giá trị ID từ mảng $data
+    $stmt->execute();
 }
 
 function update($data) {
